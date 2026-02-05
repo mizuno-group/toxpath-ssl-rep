@@ -1,4 +1,4 @@
-# template-paper
+# Toxicological Pathology Self Supervised Learning
 論文公開用テンプレート
 
 `template-dev`を基礎とし, 論文の結果の**再現性**を担保することを最優先としたテンプレート。第三者がリポジトリの指示に従うだけで論文の図や数値を再現できる状態を目指す。

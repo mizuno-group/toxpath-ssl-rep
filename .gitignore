@@ -9,8 +9,8 @@
 *.log
 
 # Secrets and local settings
-.env
-.env.*
+#.env
+#.env.*
 local_settings.py
 
 
