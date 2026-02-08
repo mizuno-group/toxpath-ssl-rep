@@ -20,7 +20,7 @@ HDD_TGGATES_HOURS = os.getenv("HDD_TGGATES_HOURS")
 
 # import
 sys.path.append(f"{root}/src")
-from tggate.utils import make_patch
+from utils import make_patch
 
 
 def main():

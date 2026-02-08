@@ -17,7 +17,7 @@ load_dotenv()
 root = os.getenv("ROOT_PATH")
 
 sys.path.append(f"{root}/src")
-import tggate
+import utils
 
 
 def drop_lst(df, lst, name=""):
@@ -120,15 +120,13 @@ def main():
     # Group
     df_all["GROUP"] = 100 * df_all["EXP_ID"] + df_all["GROUP_ID"]
     # Set folder
-    df_all["DIR"] = tggate.utils.set_dir(
-        df_all["SACRI_PERIOD"].tolist(), df_all["FILE"]
-    )
+    df_all["DIR"] = utils.set_dir(df_all["SACRI_PERIOD"].tolist(), df_all["FILE"])
     # Sampling from WSI
-    df_all["SAMPLE"] = tggate.utils.sampling_patch_from_wsi(
+    df_all["SAMPLE"] = utils.sampling_patch_from_wsi(
         patch_number=patch_number, all_number=2000, len_df=len(df_all.index), seed=seed
     )
     # Set Folding
-    df_all["FOLD"] = tggate.utils.make_groupkfold(df_all["GROUP"], n_splits=5)
+    df_all["FOLD"] = utils.make_groupkfold(df_all["GROUP"], n_splits=5)
     # export
     df_all.to_csv(f"{root}/data/processed/info_fold.csv", index=False)
     print(datetime.datetime.today().strftime("%Y/%m/%d %H:%M:%S"))
